@@ -1,10 +1,11 @@
-var React = require('react-native');
+var ReactNative = require('react-native')
+var React = require('react');
 // variable destructuring with ES2015 syntax
 var {
   Text,
   View,
   AppRegistry
-} = React;
+} = ReactNative;
 
 // former syntax
 // var Text = React.Text;
@@ -16,9 +17,9 @@ var StopWatch = React.createClass({
       <Text>
         00:00.00
       </Text>
-    </View>;
     {this.startStopButton()}
     {this.lapButton()}
+    </View>
   },
   startStopButton: function() {
     return <View>
@@ -28,7 +29,7 @@ var StopWatch = React.createClass({
       </View>
   },
   lapButton: function() {
-      <View>
+    return <View>
         <Text>
           Lap
         </Text>
