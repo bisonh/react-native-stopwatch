@@ -16,18 +16,23 @@ var StopWatch = React.createClass({
       <Text>
         00:00.00
       </Text>
-      <View>
+    </View>;
+    {this.startStopButton()}
+    {this.lapButton()}
+  },
+  startStopButton: function() {
+    return <View>
         <Text>
           Start
         </Text>
       </View>
+  },
+  lapButton: function() {
       <View>
         <Text>
           Lap
         </Text>
       </View>
-
-    </View>
   }
 });
 
