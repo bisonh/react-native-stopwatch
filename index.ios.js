@@ -1,53 +1,41 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
+var React = require('react-native');
+// variable destructuring with ES2015 syntax
+var {
   Text,
-  View
-} from 'react-native';
+  View,
+  AppRegistry
+} = React;
 
-class stopwatch extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+// former syntax
+// var Text = React.Text;
+// var View = React.View;
+
+var StopWatch = React.createClass({
+  render: function() {
+    return <View>
+      <Text>
+        00:00.00
+      </Text>
+      <View>
+        <Text>
+          Start
         </Text>
       </View>
-    );
-  }
-}
+      <View>
+        <Text>
+          Lap
+        </Text>
+      </View>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    </View>
+  }
 });
 
-AppRegistry.registerComponent('stopwatch', () => stopwatch);
+// ES2015 "fat arrow" or rocket syntax
+AppRegistry.registerComponent('stopwatch', () => StopWatch);
+
+// former longhand syntax
+// AppRegistry.registerComponent('stopwatch', function() {
+//   return StopWatch;
+// });
+
