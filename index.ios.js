@@ -67,10 +67,15 @@ var styles = StyleSheet.create({
     flex: 1
   },
   timerWrapper: {   // Red
-    flex: 5 // takes up 5/8th of the available space
+    flex: 5, // takes up 5/8th of the available space
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   buttonWrapper: {  // Green
-    flex: 3 // takes up 3/8th of the available space
+    flex: 3, // takes up 3/8th of the available space
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   }
 });
 
