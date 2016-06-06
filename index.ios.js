@@ -19,7 +19,8 @@ var StopWatch = React.createClass({
     return {
       timeElapsed: null,
       running: false,
-      startTime: null
+      startTime: null,
+      laps: []
     }
   },
   render: function() {
@@ -36,9 +37,7 @@ var StopWatch = React.createClass({
         </View>
       </View>
       <View style={styles.footer}>
-        <Text>
-          I am a list of Laps
-        </Text>
+        {this.laps()}
       </View>
     </View>
   },
@@ -87,8 +86,21 @@ var StopWatch = React.createClass({
     var lap = this.state.timeElapsed;
 
     this.setState({
-      startTime: new Date()
+      startTime: new Date(),
+      laps: this.state.laps.concat([lap])
     })
+  },
+  laps: function() {
+    return this.state.laps.map(function(time, index) {
+      return <View>
+        <Text>
+          Lap #{index + 1}
+        </Text>
+        <Text>
+          {formatTime(time)}
+        </Text>
+      </View>
+    });
   }
 });
 
