@@ -17,7 +17,8 @@ var {
 var StopWatch = React.createClass({
   getInitialState: function() {
     return {
-      timeElapsed: null
+      timeElapsed: null,
+      running: false
     }
   },
   render: function() {
@@ -46,7 +47,7 @@ var StopWatch = React.createClass({
       onPress={this.handleStartPress}
       style={[styles.button, styles.startButton]}>
         <Text>
-          Start
+          {this.state.running ? 'Stop' : 'Start'}
         </Text>
       </TouchableHighlight>
   },
@@ -58,11 +59,18 @@ var StopWatch = React.createClass({
       </View>
   },
   handleStartPress: function() {
+    if (this.state.running) {
+      clearInterval(this.interval);
+      this.setState({running: false});
+      return
+    }
+
     var startTime = new Date();
 
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.setState({
-        timeElapsed: new Date() - startTime
+        timeElapsed: new Date() - startTime,
+        running: true
       });
     }, 30);
 
